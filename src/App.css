@@ -1,0 +1,11 @@
+.App {
+  min-height: 100vh;
+}
+
+/* Smooth scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
