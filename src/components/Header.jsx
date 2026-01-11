@@ -41,18 +41,18 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="header-content">
-          <Link to="/" className="logo-link">
+          <Link to="/" className="logo-link animate-fade-in-left">
             <Logo />
           </Link>
           
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <Link to="/" onClick={() => { scrollToSection('home'); closeMenu() }}>Home</Link>
-            <Link to="/" onClick={() => { scrollToSection('about'); closeMenu() }}>About</Link>
-            <Link to="/" onClick={() => { scrollToSection('services'); closeMenu() }}>Services</Link>
-            <Link to="/" onClick={() => { scrollToSection('contact'); closeMenu() }}>Contact</Link>
+            <Link to="/" onClick={() => { scrollToSection('home'); closeMenu() }} className="nav-link-item">Home</Link>
+            <Link to="/" onClick={() => { scrollToSection('about'); closeMenu() }} className="nav-link-item">About</Link>
+            <Link to="/" onClick={() => { scrollToSection('services'); closeMenu() }} className="nav-link-item">Services</Link>
+            <Link to="/" onClick={() => { scrollToSection('contact'); closeMenu() }} className="nav-link-item">Contact</Link>
           </nav>
 
-          <button className="menu-toggle" onClick={toggleMenu}>
+          <button className="menu-toggle animate-fade-in-right" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>

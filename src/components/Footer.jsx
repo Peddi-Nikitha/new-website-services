@@ -17,9 +17,14 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+      <div className="footer-banner-wrapper">
+        <div className="footer-banner-container">
+          <img src="/footerbanner_1.png" alt="Footer Banner" className="footer-banner" />
+        </div>
+      </div>
       <div className="container">
         <div className="footer-content">
-          <div className="footer-section">
+          <div className="footer-section fade-in-on-scroll">
             <div className="footer-logo">
               <Logo />
             </div>
@@ -34,7 +39,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-section">
+          <div className="footer-section fade-in-on-scroll">
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>Home</a></li>
@@ -44,7 +49,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section">
+          <div className="footer-section fade-in-on-scroll">
             <h4>Services</h4>
             <ul>
               <li>Manpower Services</li>
@@ -54,7 +59,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-section">
+          <div className="footer-section fade-in-on-scroll">
             <h4>Contact Info</h4>
             <ul className="contact-list">
               <li>
@@ -73,7 +78,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom fade-in-on-scroll">
           <p>&copy; {new Date().getFullYear()} Mahdi Ahmed Hasan Al-Sheikh Contracting Est. All rights reserved.</p>
           <button className="scroll-top" onClick={scrollToTop} aria-label="Scroll to top">
             <FaArrowUp />

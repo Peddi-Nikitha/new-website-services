@@ -29,13 +29,13 @@ const About = () => {
   return (
     <section id="about" className="about section">
       <div className="container">
-        <h2 className="section-title">About Us</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title fade-in-on-scroll">About Us</h2>
+        <p className="section-subtitle fade-in-on-scroll">
           Leading provider of professional manpower solutions and heavy equipment rental services
         </p>
 
         <div className="about-content">
-          <div className="about-text">
+          <div className="about-text fade-in-left-on-scroll">
             <div className="about-image-wrapper">
               <img 
                 src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" 
@@ -43,18 +43,18 @@ const About = () => {
                 className="about-image"
               />
             </div>
-            <h3>Mahdi Ahmed Hasan Al-Sheikh Contracting Est</h3>
-            <p>
+            <h3 className="fade-in-on-scroll">Mahdi Ahmed Hasan Al-Sheikh Contracting Est</h3>
+            <p className="fade-in-on-scroll">
               We are a premier contracting establishment specializing in providing comprehensive 
               manpower solutions and heavy equipment rental services. With a commitment to excellence 
               and a focus on quality, we serve clients across various industries.
             </p>
-            <p>
+            <p className="fade-in-on-scroll">
               Our team consists of highly skilled professionals, certified operators, and experienced 
               technicians who are dedicated to meeting and exceeding our clients' expectations. We 
               understand the importance of reliability, safety, and efficiency in every project we undertake.
             </p>
-            <p>
+            <p className="fade-in-on-scroll">
               Whether you need skilled workers, heavy equipment, or professional support services, 
               we have the expertise and resources to deliver exceptional results.
             </p>
@@ -62,7 +62,7 @@ const About = () => {
 
           <div className="features-grid">
             {features.map((feature, index) => (
-              <div key={index} className="feature-card">
+              <div key={index} className="feature-card fade-in-right-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
                 <div className="feature-icon">{feature.icon}</div>
                 <h4>{feature.title}</h4>
                 <p>{feature.description}</p>

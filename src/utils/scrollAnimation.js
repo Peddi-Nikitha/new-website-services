@@ -9,13 +9,24 @@ export const initScrollAnimations = () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible')
+        // Stop observing once animated
+        observer.unobserve(entry.target)
       }
     })
   }, observerOptions)
 
-  // Observe all elements with fade-in-on-scroll class
-  const elements = document.querySelectorAll('.fade-in-on-scroll')
-  elements.forEach(el => observer.observe(el))
+  // Observe all elements with scroll animation classes
+  const animationClasses = [
+    '.fade-in-on-scroll',
+    '.fade-in-left-on-scroll',
+    '.fade-in-right-on-scroll',
+    '.scale-in-on-scroll'
+  ]
+
+  animationClasses.forEach(className => {
+    const elements = document.querySelectorAll(className)
+    elements.forEach(el => observer.observe(el))
+  })
 
   return observer
 }

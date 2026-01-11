@@ -1,114 +1,53 @@
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
 }
 
-.logo-icon {
-  position: relative;
-  width: 50px;
+.logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.logo-container:hover .logo-image {
+  transform: scale(1.02);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+  -webkit-filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+/* Footer Logo Styles */
+.footer .logo-container {
+  justify-content: flex-start;
+}
+
+.footer .logo-image {
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.logo-icon-main {
-  font-size: 1.8rem;
-  color: var(--white);
-  z-index: 2;
-}
-
-.logo-icon-tools {
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  font-size: 1rem;
-  color: var(--accent-color);
-  background: var(--white);
-  border-radius: 50%;
-  padding: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-title {
-  font-size: 1.3rem;
-  color: var(--primary-color);
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.3px;
-}
-
-.logo-subtitle {
-  font-size: 0.75rem;
-  color: var(--text-light);
-  font-weight: 500;
-  margin: 0;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+  -webkit-filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .logo-icon {
-    width: 45px;
+  .logo-image {
+    height: 50px;
+  }
+
+  .footer .logo-image {
     height: 45px;
-  }
-
-  .logo-icon-main {
-    font-size: 1.5rem;
-  }
-
-  .logo-icon-tools {
-    font-size: 0.85rem;
-  }
-
-  .logo-title {
-    font-size: 1rem;
-  }
-
-  .logo-subtitle {
-    font-size: 0.7rem;
   }
 }
 
 @media (max-width: 480px) {
-  .logo-container {
-    gap: 0.75rem;
+  .logo-image {
+    height: 45px;
   }
 
-  .logo-icon {
-    width: 40px;
+  .footer .logo-image {
     height: 40px;
   }
-
-  .logo-icon-main {
-    font-size: 1.3rem;
-  }
-
-  .logo-icon-tools {
-    font-size: 0.75rem;
-    bottom: -3px;
-    right: -3px;
-  }
-
-  .logo-title {
-    font-size: 0.9rem;
-  }
-
-  .logo-subtitle {
-    font-size: 0.65rem;
-  }
 }
-

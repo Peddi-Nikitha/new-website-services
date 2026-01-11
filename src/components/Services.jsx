@@ -109,12 +109,12 @@ const Services = () => {
   return (
     <section id="services" className="services section">
       <div className="container">
-        <h2 className="section-title">Our Services</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title fade-in-on-scroll">Our Services</h2>
+        <p className="section-subtitle fade-in-on-scroll">
           Comprehensive solutions for all your manpower and equipment needs
         </p>
 
-        <div className="services-tabs">
+        <div className="services-tabs fade-in-on-scroll">
           {Object.keys(services).map((key) => (
             <button
               key={key}
@@ -128,12 +128,13 @@ const Services = () => {
         </div>
 
         <div className="services-cards">
-          {Object.keys(services).map((key) => {
+          {Object.keys(services).map((key, index) => {
             const service = servicesData[key]
             return (
               <div 
                 key={key} 
-                className={`service-card ${activeTab === key ? 'active' : ''}`}
+                className={`service-card scale-in-on-scroll ${activeTab === key ? 'active' : ''}`}
+                style={{ transitionDelay: `${index * 0.15}s` }}
                 onClick={() => navigate(`/service/${key}`)}
               >
                 <div className="service-card-image">
@@ -156,13 +157,13 @@ const Services = () => {
         <div className="services-content">
           {servicesData[activeTab] && servicesData[activeTab].categories ? (
             servicesData[activeTab].categories.map((category, catIndex) => (
-              <div key={catIndex} className="service-category">
+              <div key={catIndex} className="service-category fade-in-on-scroll">
                 <h3 className="category-title">{category.name}</h3>
                 <div className="service-items-grid">
                   {category.items && category.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex} 
-                      className="service-item-card"
+                      className="service-item-card fade-in-on-scroll"
                       onClick={() => navigate(`/service/${activeTab}`)}
                       role="button"
                       tabIndex={0}
@@ -187,7 +188,7 @@ const Services = () => {
             <div>Loading services...</div>
           )}
           
-          <div className="service-view-more">
+          <div className="service-view-more fade-in-on-scroll">
             <button 
               className="btn btn-primary view-more-btn"
               onClick={() => navigate(`/service/${activeTab}`)}

@@ -35,14 +35,14 @@ const Contact = () => {
   return (
     <section id="contact" className="contact section">
       <div className="container">
-        <h2 className="section-title">Contact Us</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title fade-in-on-scroll">Contact Us</h2>
+        <p className="section-subtitle fade-in-on-scroll">
           Get in touch with us for your manpower and equipment needs
         </p>
 
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-card">
+            <div className="info-card fade-in-left-on-scroll" style={{ transitionDelay: '0.1s' }}>
               <div className="info-icon">
                 <FaPhone />
               </div>
@@ -51,7 +51,7 @@ const Contact = () => {
               <a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a>
             </div>
 
-            <div className="info-card">
+            <div className="info-card fade-in-left-on-scroll" style={{ transitionDelay: '0.2s' }}>
               <div className="info-icon">
                 <FaEnvelope />
               </div>
@@ -60,7 +60,7 @@ const Contact = () => {
               <a href="mailto:info@mahdicontracting.com">info@mahdicontracting.com</a>
             </div>
 
-            <div className="info-card">
+            <div className="info-card fade-in-left-on-scroll" style={{ transitionDelay: '0.3s' }}>
               <div className="info-icon">
                 <FaMapMarkerAlt />
               </div>
@@ -70,7 +70,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form fade-in-right-on-scroll" onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="text"

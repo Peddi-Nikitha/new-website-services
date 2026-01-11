@@ -20,17 +20,17 @@ const Hero = () => {
       <div className="hero-overlay"></div>
       <div className="container">
         <div className="hero-content">
-          <h1 className="hero-title">
+          <h1 className="hero-title fade-in-on-scroll">
             Mahdi Ahmed Hasan Al-Sheikh
             <span className="hero-subtitle">Contracting Est</span>
           </h1>
-          <p className="hero-description">
+          <p className="hero-description fade-in-on-scroll">
             Manpower & Heavy Equipments Consultancy
           </p>
-          <p className="hero-tagline">
+          <p className="hero-tagline fade-in-on-scroll">
             Your trusted partner for professional manpower solutions and heavy equipment rental services
           </p>
-          <div className="hero-buttons">
+          <div className="hero-buttons fade-in-on-scroll">
             <button className="btn btn-primary glass-button" onClick={() => scrollToSection('services')}>
               Our Services
             </button>
@@ -38,7 +38,7 @@ const Hero = () => {
               Contact Us
             </button>
           </div>
-          <div className="scroll-indicator">
+          <div className="scroll-indicator fade-in-on-scroll">
             <FaArrowDown />
           </div>
         </div>
