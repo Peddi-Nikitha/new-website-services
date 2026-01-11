@@ -133,73 +133,6 @@
   padding: 0 1rem;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary-color);
-  color: var(--white);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-
-.carousel-btn:hover {
-  background: var(--primary-dark);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.4);
-}
-
-.carousel-btn:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-.carousel-btn-prev {
-  left: 0.5rem;
-}
-
-.carousel-btn-next {
-  right: 0.5rem;
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-  padding: 0 1rem;
-}
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(30, 58, 138, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.carousel-dot:hover {
-  background: rgba(30, 58, 138, 0.5);
-  transform: scale(1.2);
-}
-
-.carousel-dot.active {
-  background: var(--primary-color);
-  width: 24px;
-  border-radius: 5px;
-}
 
 .client-logo-frame {
   background: #ffffff;
@@ -375,24 +308,6 @@
     min-width: calc(50% - 0.5rem);
     height: 100px;
     padding: 0.875rem;
-  }
-
-  .carousel-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.875rem;
-  }
-
-  .carousel-btn-prev {
-    left: 0.25rem;
-  }
-
-  .carousel-btn-next {
-    right: 0.25rem;
-  }
-
-  .carousel-dots {
-    margin-top: 1.25rem;
   }
 
   .stat-number {

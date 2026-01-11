@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FaBuilding, FaCheckCircle, FaGlobe, FaUsers, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaBuilding, FaCheckCircle, FaGlobe, FaUsers } from 'react-icons/fa'
 import './Clients.css'
 
 const Clients = () => {
@@ -57,19 +57,11 @@ const Clients = () => {
   const itemsPerSlide = 2 // Show 2 logos per slide on mobile
   const totalSlides = Math.ceil(clients.length / itemsPerSlide)
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
-
-  // Auto-play carousel on mobile
+  // Auto-play carousel on mobile - automatic scrolling
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 4000) // Change slide every 4 seconds
+    }, 3000) // Change slide every 3 seconds
 
     return () => clearInterval(interval)
   }, [totalSlides])
@@ -134,15 +126,8 @@ const Clients = () => {
             ))}
           </div>
 
-          {/* Mobile Carousel */}
+          {/* Mobile Carousel - Auto-scrolling only */}
           <div className="clients-logos-carousel clients-logos-mobile">
-            <button 
-              className="carousel-btn carousel-btn-prev" 
-              onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              <FaChevronLeft />
-            </button>
             <div className="carousel-container">
               <div 
                 className="carousel-track" 
@@ -168,23 +153,6 @@ const Clients = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            <button 
-              className="carousel-btn carousel-btn-next" 
-              onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              <FaChevronRight />
-            </button>
-            <div className="carousel-dots">
-              {Array.from({ length: totalSlides }).map((_, index) => (
-                <button
-                  key={index}
-                  className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>
