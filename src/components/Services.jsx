@@ -109,17 +109,61 @@ const Services = () => {
   return (
     <section id="services" className="services section">
       <div className="container">
-        <h2 className="section-title fade-in-on-scroll">Our Services</h2>
-        <p className="section-subtitle fade-in-on-scroll" style={{ transitionDelay: '0.1s' }}>
-          Comprehensive solutions for all your manpower and equipment needs
-        </p>
+        <div className="services-header fade-in-on-scroll">
+          <h2 className="section-title">Our Services</h2>
+          <p className="section-subtitle" style={{ transitionDelay: '0.1s' }}>
+            Comprehensive solutions for all your manpower and equipment needs
+          </p>
+        </div>
 
-        <div className="services-tabs fade-in-on-scroll">
+        {/* Main Service Cards - Video Style */}
+        <div className="services-showcase">
+          {Object.keys(services).map((key, index) => {
+            const service = servicesData[key]
+            const isActive = activeTab === key
+            const animationClass = index % 2 === 0 ? 'fade-in-left-on-scroll' : 'fade-in-right-on-scroll'
+            return (
+              <div 
+                key={key} 
+                className={`service-showcase-card premium-card-animate ${isActive ? 'active' : ''}`}
+                onClick={() => setActiveTab(key)}
+              >
+                <div className="service-showcase-image">
+                  <img src={service.image} alt={service.title} />
+                  <div className="service-showcase-overlay"></div>
+                  <div className="service-showcase-icon premium-icon-animate">{services[key].icon}</div>
+                </div>
+                <div className="service-showcase-content">
+                  <h3 className="premium-title-animate">{service.title}</h3>
+                  <p className="premium-desc-animate">{service.description.substring(0, 100)}...</p>
+                  <div className="service-showcase-features">
+                    {service.features.slice(0, 3).map((feature, idx) => (
+                      <span key={idx} className="feature-tag premium-feature-animate">{feature}</span>
+                    ))}
+                  </div>
+                  <button 
+                    className="service-showcase-btn premium-btn-animate"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      navigate(`/service/${key}`)
+                    }}
+                  >
+                    Explore Service <FaArrowRight />
+                  </button>
+                </div>
+                {isActive && <div className="service-showcase-indicator"></div>}
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Service Tabs */}
+        <div className="services-tabs fade-in-on-scroll" style={{ transitionDelay: '0.5s' }}>
           {Object.keys(services).map((key, index) => (
             <button
               key={key}
               className={`tab-button scale-in-on-scroll ${activeTab === key ? 'active' : ''}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
               onClick={() => setActiveTab(key)}
             >
               <span className="tab-icon">{services[key].icon}</span>
@@ -128,44 +172,21 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="services-cards">
-          {Object.keys(services).map((key, index) => {
-            const service = servicesData[key]
-            return (
-              <div 
-                key={key} 
-                className={`service-card scale-in-on-scroll ${activeTab === key ? 'active' : ''}`}
-                style={{ transitionDelay: `${index * 0.15}s` }}
-                onClick={() => navigate(`/service/${key}`)}
-              >
-                <div className="service-card-image">
-                  <img src={service.image} alt={service.title} />
-                  <div className="service-card-overlay"></div>
-                </div>
-                <div className="service-card-content">
-                  <div className="service-card-icon">{services[key].icon}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description.substring(0, 120)}...</p>
-                  <button className="service-card-btn">
-                    Learn More <FaArrowRight />
-                  </button>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
+        {/* Service Details Content */}
         <div className="services-content">
           {servicesData[activeTab] && servicesData[activeTab].categories ? (
             servicesData[activeTab].categories.map((category, catIndex) => (
-              <div key={catIndex} className="service-category fade-in-on-scroll" style={{ transitionDelay: `${catIndex * 0.15}s` }}>
-                <h3 className="category-title fade-in-on-scroll">{category.name}</h3>
+              <div key={catIndex} className="service-category">
+                <div className="category-header category-header-animate" style={{ animationDelay: `${catIndex * 0.3}s` }}>
+                  <h3 className="category-title category-title-animate">{category.name}</h3>
+                  <div className="category-badge">{category.items.length} Services</div>
+                </div>
                 <div className="service-items-grid">
                   {category.items && category.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex} 
-                      className="service-item-card scale-in-on-scroll"
-                      style={{ transitionDelay: `${itemIndex * 0.05}s` }}
+                      className="service-item-card service-item-card-animate"
+                      style={{ animationDelay: `${0.5 + catIndex * 0.3 + itemIndex * 0.15}s` }}
                       onClick={() => navigate(`/service/${activeTab}`)}
                       role="button"
                       tabIndex={0}
@@ -175,11 +196,14 @@ const Services = () => {
                         }
                       }}
                     >
-                      <div className="service-item-icon-wrapper">
+                      <div className="service-item-icon-wrapper service-item-icon-animate">
                         {getServiceIcon(item)}
                       </div>
                       <div className="service-item-content">
-                        <span className="service-item-name">{item}</span>
+                        <span className="service-item-name service-item-title-animate">{item}</span>
+                      </div>
+                      <div className="service-item-arrow">
+                        <FaArrowRight />
                       </div>
                     </div>
                   ))}
@@ -190,7 +214,7 @@ const Services = () => {
             <div>Loading services...</div>
           )}
           
-          <div className="service-view-more fade-in-on-scroll">
+          <div className="service-view-more fade-in-on-scroll" style={{ transitionDelay: '1.0s' }}>
             <button 
               className="btn btn-primary view-more-btn"
               onClick={() => navigate(`/service/${activeTab}`)}

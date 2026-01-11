@@ -1,8 +1,9 @@
-import React from 'react'
-import { FaBuilding, FaCheckCircle, FaGlobe, FaUsers } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react'
+import { FaBuilding, FaCheckCircle, FaGlobe, FaUsers, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import './Clients.css'
 
 const Clients = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
   const clients = [
     {
       id: 1,
@@ -53,6 +54,26 @@ const Clients = () => {
     { number: '50+', label: 'Countries Served', icon: <FaGlobe /> }
   ]
 
+  const itemsPerSlide = 2 // Show 2 logos per slide on mobile
+  const totalSlides = Math.ceil(clients.length / itemsPerSlide)
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
+  }
+
+  // Auto-play carousel on mobile
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides)
+    }, 4000) // Change slide every 4 seconds
+
+    return () => clearInterval(interval)
+  }, [totalSlides])
+
   return (
     <section id="clients" className="clients section">
       <div className="container">
@@ -90,9 +111,10 @@ const Clients = () => {
           </div>
         </div>
 
-        {/* Client Logos - Horizontal Row Layout (Like Reference) */}
+        {/* Client Logos - Horizontal Row Layout (Desktop) / Carousel (Mobile) */}
         <div className="clients-logos-section fade-in-on-scroll" style={{ transitionDelay: '0.5s' }}>
-          <div className="clients-logos-row">
+          {/* Desktop Layout */}
+          <div className="clients-logos-row clients-logos-desktop">
             {clients.map((client, index) => (
               <div 
                 key={client.id} 
@@ -104,13 +126,66 @@ const Clients = () => {
                   alt={client.name} 
                   className="client-logo-image"
                   onError={(e) => {
-                    // Fallback to placeholder if image not found
                     e.target.src = `https://via.placeholder.com/200x120/f0f0f0/666666?text=${encodeURIComponent(client.name)}`
                     e.target.style.opacity = '0.5'
                   }}
                 />
               </div>
             ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="clients-logos-carousel clients-logos-mobile">
+            <button 
+              className="carousel-btn carousel-btn-prev" 
+              onClick={prevSlide}
+              aria-label="Previous slide"
+            >
+              <FaChevronLeft />
+            </button>
+            <div className="carousel-container">
+              <div 
+                className="carousel-track" 
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                  <div key={slideIndex} className="carousel-slide">
+                    {clients
+                      .slice(slideIndex * itemsPerSlide, slideIndex * itemsPerSlide + itemsPerSlide)
+                      .map((client) => (
+                        <div key={client.id} className="client-logo-frame">
+                          <img 
+                            src={client.logo} 
+                            alt={client.name} 
+                            className="client-logo-image"
+                            onError={(e) => {
+                              e.target.src = `https://via.placeholder.com/200x120/f0f0f0/666666?text=${encodeURIComponent(client.name)}`
+                              e.target.style.opacity = '0.5'
+                            }}
+                          />
+                        </div>
+                      ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button 
+              className="carousel-btn carousel-btn-next" 
+              onClick={nextSlide}
+              aria-label="Next slide"
+            >
+              <FaChevronRight />
+            </button>
+            <div className="carousel-dots">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
