@@ -1,0 +1,7 @@
+<svg width="250" height="140" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="140" fill="#000000"/>
+  <circle cx="125" cy="70" r="40" fill="#FFD700"/>
+  <path d="M 125 40 L 135 65 L 160 65 L 142 80 L 147 105 L 125 90 L 103 105 L 108 80 L 90 65 L 115 65 Z" fill="#000000"/>
+  <text x="125" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFD700" text-anchor="middle">ARAMCO</text>
+</svg>
+

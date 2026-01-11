@@ -7,42 +7,42 @@ const Clients = () => {
     {
       id: 1,
       name: 'Saudi Electricity Company',
-      logo: 'https://via.placeholder.com/250x140/ffffff/1e3a8a?text=Saudi+Electricity'
+      logo: '/clients/client-1.svg'
     },
     {
       id: 2,
       name: 'Sinopec SIPC',
-      logo: 'https://via.placeholder.com/250x140/ffffff/dc2626?text=Sinopec+SIPC'
+      logo: '/clients/client-2.svg'
     },
     {
       id: 3,
       name: 'SWCC',
-      logo: 'https://via.placeholder.com/250x140/ffffff/2563eb?text=SWCC'
+      logo: '/clients/client-3.svg'
     },
     {
       id: 4,
       name: 'Sadara',
-      logo: 'https://via.placeholder.com/250x140/ffffff/4b5563?text=Sadara'
+      logo: '/clients/client-4.svg'
     },
     {
       id: 5,
       name: 'SABIC',
-      logo: 'https://via.placeholder.com/250x140/ffffff/059669?text=SABIC'
+      logo: '/clients/client-5.svg'
     },
     {
       id: 6,
       name: 'Aramco',
-      logo: 'https://via.placeholder.com/250x140/ffffff/000000?text=Aramco'
+      logo: '/clients/client-6.svg'
     },
     {
       id: 7,
       name: 'Royal Commission',
-      logo: 'https://via.placeholder.com/250x140/ffffff/7c3aed?text=Royal+Commission'
+      logo: '/clients/client-7.svg'
     },
     {
       id: 8,
       name: 'NEOM',
-      logo: 'https://via.placeholder.com/250x140/ffffff/0891b2?text=NEOM'
+      logo: '/clients/client-8.svg'
     }
   ]
 

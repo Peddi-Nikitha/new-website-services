@@ -1,0 +1,8 @@
+<svg width="250" height="140" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="140" fill="#7C3AED"/>
+  <rect x="80" y="40" width="90" height="60" fill="#FFFFFF" rx="5"/>
+  <text x="125" y="68" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7C3AED" text-anchor="middle">Royal</text>
+  <text x="125" y="90" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#7C3AED" text-anchor="middle">Commission</text>
+  <text x="125" y="115" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle">Royal Commission</text>
+</svg>
+

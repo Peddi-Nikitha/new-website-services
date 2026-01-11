@@ -1,0 +1,7 @@
+<svg width="250" height="140" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="140" fill="#FF6B35"/>
+  <circle cx="125" cy="70" r="35" fill="#FFFFFF"/>
+  <text x="125" y="80" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#FF6B35" text-anchor="middle">SEC</text>
+  <text x="125" y="105" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">Saudi Electricity</text>
+</svg>
+

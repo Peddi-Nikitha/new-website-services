@@ -1,0 +1,7 @@
+<svg width="250" height="140" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="140" fill="#2563EB"/>
+  <ellipse cx="125" cy="60" rx="80" ry="25" fill="#FFFFFF"/>
+  <text x="125" y="68" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2563EB" text-anchor="middle">swcc</text>
+  <text x="125" y="105" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Saline Water Conversion Corporation</text>
+</svg>
+
