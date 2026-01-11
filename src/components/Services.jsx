@@ -116,25 +116,26 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Main Service Cards - Video Style */}
+        {/* Main Service Cards - Modern Scroll Animation */}
         <div className="services-showcase">
           {Object.keys(services).map((key, index) => {
             const service = servicesData[key]
             const isActive = activeTab === key
-            const animationClass = index % 2 === 0 ? 'fade-in-left-on-scroll' : 'fade-in-right-on-scroll'
             return (
               <div 
                 key={key} 
-                className={`service-showcase-card premium-card-animate ${isActive ? 'active' : ''}`}
+                className={`service-showcase-card service-card-scroll-animate ${isActive ? 'active' : ''}`}
                 onClick={() => setActiveTab(key)}
+                style={{ '--stagger-delay': `${index * 0.12}s` }}
+                data-parallax="true"
               >
                 <div className="service-showcase-image">
                   <img src={service.image} alt={service.title} />
                   <div className="service-showcase-overlay"></div>
-                  <div className="service-showcase-icon premium-icon-animate">{services[key].icon}</div>
+                  <div className="service-showcase-icon service-icon-scroll-animate">{services[key].icon}</div>
                 </div>
                 <div className="service-showcase-content">
-                  <h3 className="premium-title-animate">{service.title}</h3>
+                  <h3 className="service-title-scroll-animate">{service.title}</h3>
                   <p className="premium-desc-animate">{service.description.substring(0, 100)}...</p>
                   <div className="service-showcase-features">
                     {service.features.slice(0, 3).map((feature, idx) => (

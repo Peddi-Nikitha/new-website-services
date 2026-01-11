@@ -139,6 +139,49 @@
   }
 }
 
+/* Modern Home Page Scroll Animation for Service Cards */
+@keyframes serviceCardSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 0.85;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes serviceIconPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(10px);
+  }
+  60% {
+    transform: scale(1.08) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes serviceTitleSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes premiumScaleIn {
   0% {
     opacity: 0;
@@ -330,6 +373,52 @@
   animation-delay: 1.5s;
 }
 
+/* Modern Scroll-Triggered Service Card Animation */
+.service-card-scroll-animate {
+  opacity: 0;
+  transform: translateY(50px) scale(0.96);
+  filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--stagger-delay, 0s);
+}
+
+.service-card-scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon-scroll-animate {
+  opacity: 0;
+  transform: scale(0.7) translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--stagger-delay, 0s) + 0.2s);
+}
+
+.service-card-scroll-animate.visible .service-icon-scroll-animate {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.service-title-scroll-animate {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-delay, 0s) + 0.4s);
+}
+
+.service-card-scroll-animate.visible .service-title-scroll-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @keyframes underlineDraw {
   0% {
     width: 0;
@@ -444,29 +533,29 @@
   animation-delay: 0s, 2s;
 }
 
-/* Reduce animations on mobile for performance */
+/* Keep animations similar to web on mobile */
 @media (max-width: 768px) {
   .service-item-card-animate {
-    filter: blur(2px);
-    animation: serviceCardFlow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0s;
+    filter: blur(4px);
+    animation: serviceCardFlow 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               cardContinuousFlow 4s ease-in-out infinite;
+    animation-delay: var(--initial-delay, 0s), var(--continuous-delay, 1.5s);
   }
 
-  .service-item-card-animate:nth-child(2n),
+  .service-item-card-animate:nth-child(2n) {
+    animation: serviceCardFlow 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+               cardContinuousFlowAlt 4s ease-in-out infinite;
+    animation-delay: var(--initial-delay, 0s), var(--continuous-delay-alt, 1.5s);
+  }
+
   .service-item-card-animate:nth-child(3n) {
-    animation: serviceCardFlow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 0s;
-  }
-
-  .cardContinuousFlow,
-  .cardContinuousFlowAlt {
-    animation: none !important;
+    animation-delay: var(--initial-delay, 0s), var(--continuous-delay, 2s);
   }
 
   .premium-icon-animate,
   .premium-title-animate,
   .premium-desc-animate {
-    animation-duration: 0.5s;
+    animation-duration: 0.8s;
   }
 }
 

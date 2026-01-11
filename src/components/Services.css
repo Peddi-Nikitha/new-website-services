@@ -314,13 +314,20 @@
   font-size: 1.1rem;
 }
 
-/* Services Showcase - Video Style */
+/* Services Showcase - Modern Scroll Animation */
 .services-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
   margin-bottom: 4rem;
   position: relative;
+}
+
+@media (min-width: 769px) {
+  .services-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 }
 
 .service-showcase-card {
@@ -345,6 +352,20 @@
   transform: translateY(-8px) scale(1.01);
   box-shadow: 0 12px 40px rgba(30, 58, 138, 0.15), 0 4px 12px rgba(30, 58, 138, 0.1);
   border-color: var(--primary-color);
+}
+
+/* Touch device hover state */
+@media (hover: hover) and (pointer: fine) {
+  .service-showcase-card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+/* Mobile touch feedback */
+@media (hover: none) and (pointer: coarse) {
+  .service-showcase-card:active {
+    transform: scale(0.98) translateY(0);
+  }
 }
 
 .service-showcase-image {
@@ -640,9 +661,12 @@
   }
 
   .services-showcase {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 3rem;
+  }
+
+  .service-showcase-card {
+    width: 100%;
   }
 
   .service-showcase-card {

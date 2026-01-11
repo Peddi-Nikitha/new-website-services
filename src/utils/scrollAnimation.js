@@ -20,7 +20,8 @@ export const initScrollAnimations = () => {
     '.fade-in-on-scroll',
     '.fade-in-left-on-scroll',
     '.fade-in-right-on-scroll',
-    '.scale-in-on-scroll'
+    '.scale-in-on-scroll',
+    '.service-card-scroll-animate'
   ]
 
   animationClasses.forEach(className => {

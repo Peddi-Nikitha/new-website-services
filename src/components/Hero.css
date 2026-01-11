@@ -21,6 +21,85 @@
   opacity: 0.3;
 }
 
+/* Scrolling Gallery Background */
+.hero-scrolling-gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 4%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.gallery-row {
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  height: 100vh;
+}
+
+.gallery-row-left {
+  align-self: flex-start;
+}
+
+.gallery-row-right {
+  align-self: flex-end;
+}
+
+.gallery-track {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  animation: scrollDown 25s linear infinite;
+  will-change: transform;
+}
+
+.gallery-track-reverse {
+  animation: scrollUp 30s linear infinite;
+}
+
+.gallery-item {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -28,11 +107,12 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -129,6 +209,19 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero-scrolling-gallery {
+    padding: 1rem 2%;
+    opacity: 0.8;
+  }
+
+  .gallery-row {
+    width: 130px;
+  }
+
+  .gallery-track {
+    gap: 2rem;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -157,6 +250,18 @@
 }
 
 @media (max-width: 480px) {
+  .hero-scrolling-gallery {
+    opacity: 0.75;
+  }
+
+  .gallery-row {
+    width: 100px;
+  }
+
+  .gallery-track {
+    gap: 1.5rem;
+  }
+
   .hero-title {
     font-size: 2rem;
   }
