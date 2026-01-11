@@ -110,15 +110,16 @@ const Services = () => {
     <section id="services" className="services section">
       <div className="container">
         <h2 className="section-title fade-in-on-scroll">Our Services</h2>
-        <p className="section-subtitle fade-in-on-scroll">
+        <p className="section-subtitle fade-in-on-scroll" style={{ transitionDelay: '0.1s' }}>
           Comprehensive solutions for all your manpower and equipment needs
         </p>
 
         <div className="services-tabs fade-in-on-scroll">
-          {Object.keys(services).map((key) => (
+          {Object.keys(services).map((key, index) => (
             <button
               key={key}
-              className={`tab-button ${activeTab === key ? 'active' : ''}`}
+              className={`tab-button scale-in-on-scroll ${activeTab === key ? 'active' : ''}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
               onClick={() => setActiveTab(key)}
             >
               <span className="tab-icon">{services[key].icon}</span>
@@ -157,13 +158,14 @@ const Services = () => {
         <div className="services-content">
           {servicesData[activeTab] && servicesData[activeTab].categories ? (
             servicesData[activeTab].categories.map((category, catIndex) => (
-              <div key={catIndex} className="service-category fade-in-on-scroll">
-                <h3 className="category-title">{category.name}</h3>
+              <div key={catIndex} className="service-category fade-in-on-scroll" style={{ transitionDelay: `${catIndex * 0.15}s` }}>
+                <h3 className="category-title fade-in-on-scroll">{category.name}</h3>
                 <div className="service-items-grid">
                   {category.items && category.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex} 
-                      className="service-item-card fade-in-on-scroll"
+                      className="service-item-card scale-in-on-scroll"
+                      style={{ transitionDelay: `${itemIndex * 0.05}s` }}
                       onClick={() => navigate(`/service/${activeTab}`)}
                       role="button"
                       tabIndex={0}

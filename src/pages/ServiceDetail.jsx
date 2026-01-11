@@ -50,13 +50,13 @@ const ServiceDetail = () => {
         <div className="service-hero" style={{ backgroundImage: `url(${service.heroImage})` }}>
           <div className="service-hero-overlay"></div>
           <div className="container">
-            <button className="back-button" onClick={() => navigate('/')}>
+            <button className="back-button fade-in-on-scroll" onClick={() => navigate('/')}>
               <FaArrowLeft /> Back to Services
             </button>
-            <div className="service-hero-content">
-              <span className="service-category">{service.category}</span>
-              <h1>{service.title}</h1>
-              <p className="service-hero-description">{service.description}</p>
+            <div className="service-hero-content fade-in-on-scroll">
+              <span className="service-category fade-in-on-scroll" style={{ transitionDelay: '0.1s' }}>{service.category}</span>
+              <h1 className="fade-in-on-scroll" style={{ transitionDelay: '0.2s' }}>{service.title}</h1>
+              <p className="service-hero-description fade-in-on-scroll" style={{ transitionDelay: '0.3s' }}>{service.description}</p>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ const About = () => {
     <section id="about" className="about section">
       <div className="container">
         <h2 className="section-title fade-in-on-scroll">About Us</h2>
-        <p className="section-subtitle fade-in-on-scroll">
+        <p className="section-subtitle fade-in-on-scroll" style={{ transitionDelay: '0.1s' }}>
           Leading provider of professional manpower solutions and heavy equipment rental services
         </p>
 

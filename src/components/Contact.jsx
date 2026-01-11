@@ -36,7 +36,7 @@ const Contact = () => {
     <section id="contact" className="contact section">
       <div className="container">
         <h2 className="section-title fade-in-on-scroll">Contact Us</h2>
-        <p className="section-subtitle fade-in-on-scroll">
+        <p className="section-subtitle fade-in-on-scroll" style={{ transitionDelay: '0.1s' }}>
           Get in touch with us for your manpower and equipment needs
         </p>
 
@@ -126,7 +126,7 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary form-submit">
+            <button type="submit" className="btn btn-primary form-submit scale-in-on-scroll" style={{ transitionDelay: '0.3s' }}>
               <FaPaperPlane /> Send Message
             </button>
           </form>

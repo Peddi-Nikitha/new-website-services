@@ -49,6 +49,7 @@ const Header = () => {
             <Link to="/" onClick={() => { scrollToSection('home'); closeMenu() }} className="nav-link-item">Home</Link>
             <Link to="/" onClick={() => { scrollToSection('about'); closeMenu() }} className="nav-link-item">About</Link>
             <Link to="/" onClick={() => { scrollToSection('services'); closeMenu() }} className="nav-link-item">Services</Link>
+            <Link to="/" onClick={() => { scrollToSection('clients'); closeMenu() }} className="nav-link-item">Clients</Link>
             <Link to="/" onClick={() => { scrollToSection('contact'); closeMenu() }} className="nav-link-item">Contact</Link>
           </nav>
 

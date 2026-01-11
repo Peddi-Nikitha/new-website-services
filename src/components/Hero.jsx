@@ -31,10 +31,10 @@ const Hero = () => {
             Your trusted partner for professional manpower solutions and heavy equipment rental services
           </p>
           <div className="hero-buttons fade-in-on-scroll">
-            <button className="btn btn-primary glass-button" onClick={() => scrollToSection('services')}>
+            <button className="btn btn-primary glass-button scale-in-on-scroll" style={{ transitionDelay: '0.1s' }} onClick={() => scrollToSection('services')}>
               Our Services
             </button>
-            <button className="btn btn-secondary glass-button" onClick={() => scrollToSection('contact')}>
+            <button className="btn btn-secondary glass-button scale-in-on-scroll" style={{ transitionDelay: '0.2s' }} onClick={() => scrollToSection('contact')}>
               Contact Us
             </button>
           </div>
